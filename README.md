@@ -1,10 +1,12 @@
 # UE4Bson
-This is a UE4 Plugin which adds basic Bson Support to your Unreal Engine.
+This is an Unreal Engine 4 plugin which adds basic Bson support.
 Currently the only supported platform is Win64.
+
+## Getting it to work
+Clone this Github into your UE4Project/Plugins folder. Add "UE4Bson" to your PrivateDependencyModules and rebuild the project. That should be it, you're ready to go.
 
 ## Usage notes
 The usage is somewhat similar to the native Json functionality of UE4. Once the plugin is packaged, installed and added to your dependencies you can include FBson.h and then use FBsonObject just like you would use FJsonObject. There is some example code below.
-
 
 ## Example code
 ```
@@ -35,7 +37,8 @@ UE_LOG(LogTemp, Log, TEXT("MyObject formatted as json string ... again: %s"), *(
 ```
 
 When this code is executed you should see in your Output Log something similar to this:
-(You can access the Output Log UE4 editor via Window -> Developer Tools -> Output Log)
+
+(You can access the Output Log in the UE4 editor via Window -> Developer Tools -> Output Log)
 ```
 LogTemp: MyObject formatted as json string: { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true }
 LogTemp: MySubObject formatted as json string: { "SubBool" : false, "SubArray" : [ "MyArrayString", { "$numberDouble" : "1337.0" }, { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true } ] }
