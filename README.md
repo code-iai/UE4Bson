@@ -21,7 +21,6 @@ UE_LOG(LogTemp, Log, TEXT("MyObject formatted as json string: %s"), *(MyObject->
 TArray<TSharedPtr<FBsonValue>> MyArray;
 MyArray.Add(MakeShareable(new FBsonValueString("MyArrayString")));
 MyArray.Add(MakeShareable(new FBsonValueNumber(1337)));
-// Yet to be implemented, this currently does not get added to the FBsonObject when SetArrayField is used.
 MyArray.Add(MakeShareable(new FBsonValueObject(MyObject)));
 
 TSharedPtr<FBsonObject> MySubObject = MakeShareable(new FBsonObject);
@@ -35,9 +34,10 @@ MyObject->SetObjectField("SubObject", MySubObject);
 UE_LOG(LogTemp, Log, TEXT("MyObject formatted as json string ... again: %s"), *(MyObject->GetJsonFormattedString()));
 ```
 
-When this code is executed you should see in your Output Log (which you can access in the UE4 editor via Window->Developer Tools->Output Log) something similar to this:
+When this code is executed you should see in your Output Log something similar to this:
+(You can access the Output Log UE4 editor via Window -> Developer Tools -> Output Log)
 ```
 LogTemp: MyObject formatted as json string: { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true }
-LogTemp: MySubObject formatted as json string: { "SubBool" : false, "SubArray" : [ "MyArrayString", { "$numberDouble" : "1337.0" } ] }
-LogTemp: MyObject formatted as json string ... again: { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true, "SubObject" : { "SubBool" : false, "SubArray" : [ "MyArrayString", { "$numberDouble" : "1337.0" } ] } }
+LogTemp: MySubObject formatted as json string: { "SubBool" : false, "SubArray" : [ "MyArrayString", { "$numberDouble" : "1337.0" }, { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true } ] }
+LogTemp: MyObject formatted as json string ... again: { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true, "SubObject" : { "SubBool" : false, "SubArray" : [ "MyArrayString", { "$numberDouble" : "1337.0" }, { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true } ] } }
 ```

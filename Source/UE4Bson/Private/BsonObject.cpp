@@ -43,9 +43,7 @@ struct FBsonObject::LibbsonImpl {
 				BSON_APPEND_DOUBLE(outArray.Get(), TCHAR_TO_UTF8(*indexAsFString), Value->AsNumber());
 				break;
 			case EBson::Object:
-
-				// TODO
-
+				BSON_APPEND_DOCUMENT(outArray.Get(), TCHAR_TO_UTF8(*indexAsFString), Value->AsObject()->Impl->bsonDoc);
 				break;
 			case EBson::String:
 				BSON_APPEND_UTF8(outArray.Get(), TCHAR_TO_UTF8(*indexAsFString), TCHAR_TO_UTF8(*(Value->AsString())));
@@ -117,6 +115,8 @@ struct FBsonObject::LibbsonImpl {
 			return EBson::Number;
 		case BSON_TYPE_UTF8:
 			return EBson::String;
+		case BSON_TYPE_DOCUMENT:
+			return EBson::Object;
 		default:
 			return EBson::None;
 		}
@@ -137,6 +137,8 @@ struct FBsonObject::LibbsonImpl {
 			return BSON_TYPE_DOUBLE;
 		case EBson::String:
 			return BSON_TYPE_UTF8;
+		case EBson::Object:
+			return BSON_TYPE_DOCUMENT;
 		default:
 			return BSON_TYPE_UNDEFINED;
 		}
