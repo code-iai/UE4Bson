@@ -37,10 +37,9 @@ UE_LOG(LogTemp, Log, TEXT("MyObject formatted as json string ... again: %s"), *(
 ```
 
 When this code is executed you should see in your Output Log something similar to this:
-
-(You can access the Output Log in the UE4 editor via Window -> Developer Tools -> Output Log)
 ```
 LogTemp: MyObject formatted as json string: { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true }
 LogTemp: MySubObject formatted as json string: { "SubBool" : false, "SubArray" : [ "MyArrayString", { "$numberDouble" : "1337.0" }, { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true } ] }
 LogTemp: MyObject formatted as json string ... again: { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true, "SubObject" : { "SubBool" : false, "SubArray" : [ "MyArrayString", { "$numberDouble" : "1337.0" }, { "Number" : { "$numberDouble" : "42.0" }, "String" : "funnyString", "Bool" : true } ] } }
 ```
+(You can access the Output Log in the UE4 editor via Window -> Developer Tools -> Output Log)
