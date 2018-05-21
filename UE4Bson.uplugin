@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "UE4Bson",
+	"Description": "This Plugin adds basic BSON support, using backend libbson, somewhat similar to FJson.",
+	"Category": "Other",
+	"CreatedBy": "Frederick Hastedt",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UE4Bson",
+			"Type": "Developer",
+			"LoadingPhase": "Default"
+		}
+	]
+}
