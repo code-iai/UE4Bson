@@ -1,0 +1,108 @@
+\hypertarget{class_f_bson_value_string}{}\section{F\+Bson\+Value\+String Class Reference}
+\label{class_f_bson_value_string}\index{F\+Bson\+Value\+String@{F\+Bson\+Value\+String}}
+
+
+{\ttfamily \#include $<$Bson\+Value.\+h$>$}
+
+Inheritance diagram for F\+Bson\+Value\+String\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_bson_value_string}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_bson_value_string_aaed7b1cdf1a0194f63834a5f1cf9afea}\label{class_f_bson_value_string_aaed7b1cdf1a0194f63834a5f1cf9afea}} 
+{\bfseries F\+Bson\+Value\+String} (const F\+String \&In\+String)
+\item 
+virtual bool \mbox{\hyperlink{class_f_bson_value_string_a531bcc8511d8de17418fd7fe6d0d797f}{Try\+Get\+String}} (F\+String \&Out\+String) const override
+\item 
+virtual bool \mbox{\hyperlink{class_f_bson_value_string_a7346681867daa27d7fa4a4e690ba55aa}{Try\+Get\+Number}} (double \&Out\+Double) const override
+\item 
+virtual bool \mbox{\hyperlink{class_f_bson_value_string_a81c2e67998032708c613773746c962bd}{Try\+Get\+Bool}} (bool \&Out\+Bool) const override
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_bson_value_string_a6978dea432d71e5f76ac9d226e830bc9}\label{class_f_bson_value_string_a6978dea432d71e5f76ac9d226e830bc9}} 
+virtual F\+String {\bfseries Get\+Type} () const override
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_bson_value_string_a4cb7ba55f5facf934531265b06bf9fb9}\label{class_f_bson_value_string_a4cb7ba55f5facf934531265b06bf9fb9}} 
+F\+String {\bfseries Value}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A Bson String Value. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_bson_value_string_a81c2e67998032708c613773746c962bd}\label{class_f_bson_value_string_a81c2e67998032708c613773746c962bd}} 
+\index{F\+Bson\+Value\+String@{F\+Bson\+Value\+String}!Try\+Get\+Bool@{Try\+Get\+Bool}}
+\index{Try\+Get\+Bool@{Try\+Get\+Bool}!F\+Bson\+Value\+String@{F\+Bson\+Value\+String}}
+\subsubsection{\texorpdfstring{Try\+Get\+Bool()}{TryGetBool()}}
+{\footnotesize\ttfamily virtual bool F\+Bson\+Value\+String\+::\+Try\+Get\+Bool (\begin{DoxyParamCaption}\item[{bool \&}]{Out\+Bool }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Tries to convert this value to an boolean, returning false if not possible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Out\+Bool} & a reference to write the converted boolean into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if value can\textquotesingle{}t be converted, true otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_f_bson_value_a1c7d6b561d3cc8a7db99b850740c642e}{F\+Bson\+Value}}.
+
+\mbox{\Hypertarget{class_f_bson_value_string_a7346681867daa27d7fa4a4e690ba55aa}\label{class_f_bson_value_string_a7346681867daa27d7fa4a4e690ba55aa}} 
+\index{F\+Bson\+Value\+String@{F\+Bson\+Value\+String}!Try\+Get\+Number@{Try\+Get\+Number}}
+\index{Try\+Get\+Number@{Try\+Get\+Number}!F\+Bson\+Value\+String@{F\+Bson\+Value\+String}}
+\subsubsection{\texorpdfstring{Try\+Get\+Number()}{TryGetNumber()}}
+{\footnotesize\ttfamily virtual bool F\+Bson\+Value\+String\+::\+Try\+Get\+Number (\begin{DoxyParamCaption}\item[{double \&}]{Out\+Double }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Tries to convert this value to a double, returning false if not possible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Out\+Double} & a reference to write the converted number into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if value can\textquotesingle{}t be converted, true otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_f_bson_value_a519904f85122172ad9ca2f6b0b144f26}{F\+Bson\+Value}}.
+
+\mbox{\Hypertarget{class_f_bson_value_string_a531bcc8511d8de17418fd7fe6d0d797f}\label{class_f_bson_value_string_a531bcc8511d8de17418fd7fe6d0d797f}} 
+\index{F\+Bson\+Value\+String@{F\+Bson\+Value\+String}!Try\+Get\+String@{Try\+Get\+String}}
+\index{Try\+Get\+String@{Try\+Get\+String}!F\+Bson\+Value\+String@{F\+Bson\+Value\+String}}
+\subsubsection{\texorpdfstring{Try\+Get\+String()}{TryGetString()}}
+{\footnotesize\ttfamily virtual bool F\+Bson\+Value\+String\+::\+Try\+Get\+String (\begin{DoxyParamCaption}\item[{F\+String \&}]{Out\+String }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Tries to convert this value to an F\+String, returning false if not possible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Out\+String} & a reference to write the converted F\+String into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if value can\textquotesingle{}t be converted, true otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_f_bson_value_aa52379f3d911ed0d5c8ded6e83ceecc0}{F\+Bson\+Value}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Bson\+Value.\+h\end{DoxyCompactItemize}

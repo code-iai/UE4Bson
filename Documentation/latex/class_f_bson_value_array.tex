@@ -1,0 +1,64 @@
+\hypertarget{class_f_bson_value_array}{}\section{F\+Bson\+Value\+Array Class Reference}
+\label{class_f_bson_value_array}\index{F\+Bson\+Value\+Array@{F\+Bson\+Value\+Array}}
+
+
+{\ttfamily \#include $<$Bson\+Value.\+h$>$}
+
+Inheritance diagram for F\+Bson\+Value\+Array\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_f_bson_value_array}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_bson_value_array_a1101ddb368136fa040bd3340446e2e58}\label{class_f_bson_value_array_a1101ddb368136fa040bd3340446e2e58}} 
+{\bfseries F\+Bson\+Value\+Array} (const T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$$>$ \&In\+Array)
+\item 
+virtual bool \mbox{\hyperlink{class_f_bson_value_array_a32f100ae460cd26a870fc04d85ffe2c5}{Try\+Get\+Array}} (const T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$$>$ $\ast$\&Out\+Array) const override
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_bson_value_array_a30a33b8e9f808aaa049df54819380175}\label{class_f_bson_value_array_a30a33b8e9f808aaa049df54819380175}} 
+virtual F\+String {\bfseries Get\+Type} () const override
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_f_bson_value_array_a677992b370839f3b2b1831698b986a00}\label{class_f_bson_value_array_a677992b370839f3b2b1831698b986a00}} 
+T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$ $>$ {\bfseries Value}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A Json Array Value. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_bson_value_array_a32f100ae460cd26a870fc04d85ffe2c5}\label{class_f_bson_value_array_a32f100ae460cd26a870fc04d85ffe2c5}} 
+\index{F\+Bson\+Value\+Array@{F\+Bson\+Value\+Array}!Try\+Get\+Array@{Try\+Get\+Array}}
+\index{Try\+Get\+Array@{Try\+Get\+Array}!F\+Bson\+Value\+Array@{F\+Bson\+Value\+Array}}
+\subsubsection{\texorpdfstring{Try\+Get\+Array()}{TryGetArray()}}
+{\footnotesize\ttfamily virtual bool F\+Bson\+Value\+Array\+::\+Try\+Get\+Array (\begin{DoxyParamCaption}\item[{const T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$$>$ $\ast$\&}]{Out\+Array }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Tries to convert this value to a T\+Array of T\+Shared\+Ptr$<$\+F\+Bson\+Value$>$, returning false if not possible.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Out\+Array} & a reference to write the converted T\+Array into. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if value can\textquotesingle{}t be converted, true otherwise. 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_f_bson_value_a80102a8570ea5468895c82f1bc480151}{F\+Bson\+Value}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Bson\+Value.\+h\end{DoxyCompactItemize}

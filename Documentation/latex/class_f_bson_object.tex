@@ -1,0 +1,467 @@
+\hypertarget{class_f_bson_object}{}\section{F\+Bson\+Object Class Reference}
+\label{class_f_bson_object}\index{F\+Bson\+Object@{F\+Bson\+Object}}
+
+
+{\ttfamily \#include $<$Bson\+Object.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t $\ast$ \mbox{\hyperlink{class_f_bson_object_af012a0438b3e430efed8dc4f1bcd1de7}{Get\+Data\+Pointer}} () const
+\item 
+F\+String \mbox{\hyperlink{class_f_bson_object_a8d8d23a9c2887b98a115dcb59ec4d8e2}{Print\+As\+Canonical\+Json}} () const
+\item 
+F\+String \mbox{\hyperlink{class_f_bson_object_abe06191c8b6df93b07fd66d582194608}{Print\+As\+Json}} () const
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_a33c96802fcc2f7267a2d9b4c315b751c}{Compare}} (const T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} $>$ \&To\+Compare) const
+\item 
+T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$ \mbox{\hyperlink{class_f_bson_object_a8f5c19b16e114fb51789313da65ee438}{Get\+Field}} (const F\+String \&Field\+Name) const
+\item 
+T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$ \mbox{\hyperlink{class_f_bson_object_ab6df900d2da6d850cac67bfb48862b22}{Try\+Get\+Field}} (const F\+String \&Field\+Name) const
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_a9d47685e9b2f59df92ccfe1351a49e68}{Has\+Field}} (const F\+String \&Field\+Name) const
+\item 
+double \mbox{\hyperlink{class_f_bson_object_ac2eb24afb362e7adeffd25295926e309}{Get\+Number\+Field}} (const F\+String \&Field\+Name) const
+\item 
+F\+O\+R\+C\+E\+I\+N\+L\+I\+NE int32 \mbox{\hyperlink{class_f_bson_object_a9560d742bc657aeb7439de7b5b378bc2}{Get\+Integer\+Field}} (const F\+String \&Field\+Name) const
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_a1b1e5ef9cc72a00a8e3d246f7bed7842}{Try\+Get\+Number\+Field}} (const F\+String \&Field\+Name, double \&Out\+Number) const
+\item 
+F\+String \mbox{\hyperlink{class_f_bson_object_a2fabcf26e54c75aa16dc75e0ce9fc37c}{Get\+String\+Field}} (const F\+String \&Field\+Name) const
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_a3424002e68cf2e9928c038e3d7a4aec9}{Try\+Get\+String\+Field}} (const F\+String \&Field\+Name, F\+String \&Out\+String) const
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_aeca0635a47dd5b5add74b80672c73516}{Try\+Get\+String\+Array\+Field}} (const F\+String \&Field\+Name, T\+Array$<$ F\+String $>$ \&Out\+Array) const
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_a112736dc2fa79b11a1bd4f7c7bcb51ad}{Get\+Bool\+Field}} (const F\+String \&Field\+Name) const
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_ae5bc67e3ece644f8de1c2c9921d14aad}{Try\+Get\+Bool\+Field}} (const F\+String \&Field\+Name, bool \&Out\+Bool) const
+\item 
+const T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$ $>$ \mbox{\hyperlink{class_f_bson_object_afd1ef9fcbdfd1700f50117308c80294f}{Get\+Array\+Field}} (const F\+String \&Field\+Name) const
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_ad7c32dcbaf34aef08880ff2bf033f1bb}{Try\+Get\+Array\+Field}} (const F\+String \&Field\+Name, T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$$>$ \&Out\+Array) const
+\item 
+const T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} $>$ \mbox{\hyperlink{class_f_bson_object_aa803b297d9bdacfca1b7569c3f53d1f4}{Get\+Object\+Field}} (const F\+String \&Field\+Name) const
+\item 
+void \mbox{\hyperlink{class_f_bson_object_a24d085f2040b805e4f1c5ad250646a5b}{Set\+Field}} (const F\+String \&Field\+Name, const T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$ \&Value)
+\item 
+void \mbox{\hyperlink{class_f_bson_object_a0d1749707ef977f52c44eb9db029766f}{Set\+Number\+Field}} (const F\+String \&Field\+Name, double Number)
+\item 
+void \mbox{\hyperlink{class_f_bson_object_a97b99487e75dc6f366c95e841d006a3d}{Set\+String\+Field}} (const F\+String \&Field\+Name, const F\+String \&String\+Value)
+\item 
+void \mbox{\hyperlink{class_f_bson_object_a68e5a109c8efba903375686cbffbcd7f}{Set\+Bool\+Field}} (const F\+String \&Field\+Name, bool Bool)
+\item 
+void \mbox{\hyperlink{class_f_bson_object_a82b1c8b61a1d4236dd0b4a6b31a6eea7}{Set\+Array\+Field}} (const F\+String \&Field\+Name, const T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$ $>$ \&Array)
+\item 
+void \mbox{\hyperlink{class_f_bson_object_aba8c25dce5711747c222bb11d4d769c5}{Set\+Object\+Field}} (const F\+String \&Field\+Name, const T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} $>$ \&Object)
+\item 
+bool \mbox{\hyperlink{class_f_bson_object_ac96a387909bdadff289a513094ec1aad}{Remove\+Field}} (const F\+String \&Field\+Name)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class\textquotesingle{} main purpose is to contain a hidden bson\+\_\+t document. It can be edited and read (mostly) in known F\+Json\+Object manner. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_f_bson_object_a33c96802fcc2f7267a2d9b4c315b751c}\label{class_f_bson_object_a33c96802fcc2f7267a2d9b4c315b751c}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Compare@{Compare}}
+\index{Compare@{Compare}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Compare()}{Compare()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Compare (\begin{DoxyParamCaption}\item[{const T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} $>$ \&}]{To\+Compare }\end{DoxyParamCaption}) const}
+
+Compares the contents of an \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} to a given other one.
+
+
+\begin{DoxyParams}{Parameters}
+{\em To\+Compare} & a reference to the \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} to match. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the contents match. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_afd1ef9fcbdfd1700f50117308c80294f}\label{class_f_bson_object_afd1ef9fcbdfd1700f50117308c80294f}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Get\+Array\+Field@{Get\+Array\+Field}}
+\index{Get\+Array\+Field@{Get\+Array\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Get\+Array\+Field()}{GetArrayField()}}
+{\footnotesize\ttfamily const T\+Array$<$T\+Shared\+Ptr$<$\mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}}$>$ $>$ F\+Bson\+Object\+::\+Get\+Array\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const}
+
+Finds the field with the specified name and returns it as a T\+Array$<$ T\+Shared\+Ptr$<$\+F\+Bson\+Value$>$ $>$.
+
+Assumes that the field is present and is of type array.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The field\textquotesingle{}s value as a T\+Array$<$ T\+Shared\+Ptr$<$\+F\+Bson\+Value$>$ $>$. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a112736dc2fa79b11a1bd4f7c7bcb51ad}\label{class_f_bson_object_a112736dc2fa79b11a1bd4f7c7bcb51ad}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Get\+Bool\+Field@{Get\+Bool\+Field}}
+\index{Get\+Bool\+Field@{Get\+Bool\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Get\+Bool\+Field()}{GetBoolField()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Get\+Bool\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const}
+
+Finds the field with the specified name and returns it as a boolean.
+
+Assumes that the field is present and is of type boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The field\textquotesingle{}s value as a boolean. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_af012a0438b3e430efed8dc4f1bcd1de7}\label{class_f_bson_object_af012a0438b3e430efed8dc4f1bcd1de7}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Get\+Data\+Pointer@{Get\+Data\+Pointer}}
+\index{Get\+Data\+Pointer@{Get\+Data\+Pointer}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Get\+Data\+Pointer()}{GetDataPointer()}}
+{\footnotesize\ttfamily const uint8\+\_\+t$\ast$ F\+Bson\+Object\+::\+Get\+Data\+Pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+a pointer to the memory region where the bson formatted data is located. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a8f5c19b16e114fb51789313da65ee438}\label{class_f_bson_object_a8f5c19b16e114fb51789313da65ee438}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Get\+Field@{Get\+Field}}
+\index{Get\+Field@{Get\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Get\+Field()}{GetField()}}
+{\footnotesize\ttfamily T\+Shared\+Ptr$<$\mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}}$>$ F\+Bson\+Object\+::\+Get\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const}
+
+Returns a field with the given fieldname(key).
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to check. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+Shared\+Ptr with an appropriate \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a9560d742bc657aeb7439de7b5b378bc2}\label{class_f_bson_object_a9560d742bc657aeb7439de7b5b378bc2}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Get\+Integer\+Field@{Get\+Integer\+Field}}
+\index{Get\+Integer\+Field@{Get\+Integer\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Get\+Integer\+Field()}{GetIntegerField()}}
+{\footnotesize\ttfamily F\+O\+R\+C\+E\+I\+N\+L\+I\+NE int32 F\+Bson\+Object\+::\+Get\+Integer\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Finds the field with the specified name and returns it as an int32.
+
+Assumes that the field is present and is of type castable to double.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The field\textquotesingle{}s value as an int32. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_ac2eb24afb362e7adeffd25295926e309}\label{class_f_bson_object_ac2eb24afb362e7adeffd25295926e309}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Get\+Number\+Field@{Get\+Number\+Field}}
+\index{Get\+Number\+Field@{Get\+Number\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Get\+Number\+Field()}{GetNumberField()}}
+{\footnotesize\ttfamily double F\+Bson\+Object\+::\+Get\+Number\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const}
+
+Finds the field with the specified name and returns it as a double.
+
+Assumes that the field is present and is of numerical type.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The field\textquotesingle{}s value as a double. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_aa803b297d9bdacfca1b7569c3f53d1f4}\label{class_f_bson_object_aa803b297d9bdacfca1b7569c3f53d1f4}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Get\+Object\+Field@{Get\+Object\+Field}}
+\index{Get\+Object\+Field@{Get\+Object\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Get\+Object\+Field()}{GetObjectField()}}
+{\footnotesize\ttfamily const T\+Shared\+Ptr$<$\mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}}$>$ F\+Bson\+Object\+::\+Get\+Object\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const}
+
+Finds the field with the specified name and returns it as a T\+Shared\+Ptr$<$\+F\+Bson\+Object$>$.
+
+Assumes that the field is present and is of type object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The field\textquotesingle{}s value as a T\+Shared\+Ptr$<$\+F\+Bson\+Object$>$. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a2fabcf26e54c75aa16dc75e0ce9fc37c}\label{class_f_bson_object_a2fabcf26e54c75aa16dc75e0ce9fc37c}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Get\+String\+Field@{Get\+String\+Field}}
+\index{Get\+String\+Field@{Get\+String\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Get\+String\+Field()}{GetStringField()}}
+{\footnotesize\ttfamily F\+String F\+Bson\+Object\+::\+Get\+String\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const}
+
+Finds the field with the specified name and returns it as an F\+String.
+
+Assumes that the field is present and of type string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The field\textquotesingle{}s value as an F\+String. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a9d47685e9b2f59df92ccfe1351a49e68}\label{class_f_bson_object_a9d47685e9b2f59df92ccfe1351a49e68}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Has\+Field@{Has\+Field}}
+\index{Has\+Field@{Has\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Has\+Field()}{HasField()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Has\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const}
+
+Checks whether the specified field exists.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to check for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the field exists, false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a8d8d23a9c2887b98a115dcb59ec4d8e2}\label{class_f_bson_object_a8d8d23a9c2887b98a115dcb59ec4d8e2}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Print\+As\+Canonical\+Json@{Print\+As\+Canonical\+Json}}
+\index{Print\+As\+Canonical\+Json@{Print\+As\+Canonical\+Json}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Print\+As\+Canonical\+Json()}{PrintAsCanonicalJson()}}
+{\footnotesize\ttfamily F\+String F\+Bson\+Object\+::\+Print\+As\+Canonical\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} as a Json formatted String with some extra information. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_abe06191c8b6df93b07fd66d582194608}\label{class_f_bson_object_abe06191c8b6df93b07fd66d582194608}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Print\+As\+Json@{Print\+As\+Json}}
+\index{Print\+As\+Json@{Print\+As\+Json}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Print\+As\+Json()}{PrintAsJson()}}
+{\footnotesize\ttfamily F\+String F\+Bson\+Object\+::\+Print\+As\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} as a simple Json formatted String. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_ac96a387909bdadff289a513094ec1aad}\label{class_f_bson_object_ac96a387909bdadff289a513094ec1aad}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Remove\+Field@{Remove\+Field}}
+\index{Remove\+Field@{Remove\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Remove\+Field()}{RemoveField()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Remove\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption})}
+
+Removes the given field.
+
+W\+A\+R\+N\+I\+NG\+: I\+N\+E\+F\+F\+I\+C\+I\+E\+N\+T!
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to remove. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the field was successfully removed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a82b1c8b61a1d4236dd0b4a6b31a6eea7}\label{class_f_bson_object_a82b1c8b61a1d4236dd0b4a6b31a6eea7}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Set\+Array\+Field@{Set\+Array\+Field}}
+\index{Set\+Array\+Field@{Set\+Array\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Set\+Array\+Field()}{SetArrayField()}}
+{\footnotesize\ttfamily void F\+Bson\+Object\+::\+Set\+Array\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{const T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$ $>$ \&}]{Array }\end{DoxyParamCaption})}
+
+Adds a field of type Array.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name to be given to the field (key). \\
+\hline
+{\em Array} & The desired value of the field (value). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_bson_object_a68e5a109c8efba903375686cbffbcd7f}\label{class_f_bson_object_a68e5a109c8efba903375686cbffbcd7f}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Set\+Bool\+Field@{Set\+Bool\+Field}}
+\index{Set\+Bool\+Field@{Set\+Bool\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Set\+Bool\+Field()}{SetBoolField()}}
+{\footnotesize\ttfamily void F\+Bson\+Object\+::\+Set\+Bool\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{bool}]{Bool }\end{DoxyParamCaption})}
+
+Adds a field of type boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name to be given to the field (key). \\
+\hline
+{\em Bool} & The desired value of the field (value). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_bson_object_a24d085f2040b805e4f1c5ad250646a5b}\label{class_f_bson_object_a24d085f2040b805e4f1c5ad250646a5b}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Set\+Field@{Set\+Field}}
+\index{Set\+Field@{Set\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Set\+Field()}{SetField()}}
+{\footnotesize\ttfamily void F\+Bson\+Object\+::\+Set\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{const T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$ \&}]{Value }\end{DoxyParamCaption})}
+
+Adds a field, automatically determines the type of the field to set from the given \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name to be given to the field. \\
+\hline
+{\em Value} & A T\+Shared\+Ptr$<$\+F\+Bson\+Value$>$ containing the desired value of the field. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_bson_object_a0d1749707ef977f52c44eb9db029766f}\label{class_f_bson_object_a0d1749707ef977f52c44eb9db029766f}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Set\+Number\+Field@{Set\+Number\+Field}}
+\index{Set\+Number\+Field@{Set\+Number\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Set\+Number\+Field()}{SetNumberField()}}
+{\footnotesize\ttfamily void F\+Bson\+Object\+::\+Set\+Number\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{double}]{Number }\end{DoxyParamCaption})}
+
+Adds a field of type double (number).
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name to be given to the field (key). \\
+\hline
+{\em Number} & The desired value of the field (value). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_bson_object_aba8c25dce5711747c222bb11d4d769c5}\label{class_f_bson_object_aba8c25dce5711747c222bb11d4d769c5}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Set\+Object\+Field@{Set\+Object\+Field}}
+\index{Set\+Object\+Field@{Set\+Object\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Set\+Object\+Field()}{SetObjectField()}}
+{\footnotesize\ttfamily void F\+Bson\+Object\+::\+Set\+Object\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{const T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_object}{F\+Bson\+Object}} $>$ \&}]{Object }\end{DoxyParamCaption})}
+
+Adds a field of type double.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name to be given to the field (key). \\
+\hline
+{\em Object} & The desired value of the field (value). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_bson_object_a97b99487e75dc6f366c95e841d006a3d}\label{class_f_bson_object_a97b99487e75dc6f366c95e841d006a3d}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Set\+String\+Field@{Set\+String\+Field}}
+\index{Set\+String\+Field@{Set\+String\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Set\+String\+Field()}{SetStringField()}}
+{\footnotesize\ttfamily void F\+Bson\+Object\+::\+Set\+String\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{const F\+String \&}]{String\+Value }\end{DoxyParamCaption})}
+
+Adds a field of type string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name to be given to the field (key). \\
+\hline
+{\em String\+Value} & The desired value of the field (value). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_f_bson_object_ad7c32dcbaf34aef08880ff2bf033f1bb}\label{class_f_bson_object_ad7c32dcbaf34aef08880ff2bf033f1bb}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Try\+Get\+Array\+Field@{Try\+Get\+Array\+Field}}
+\index{Try\+Get\+Array\+Field@{Try\+Get\+Array\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Try\+Get\+Array\+Field()}{TryGetArrayField()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Try\+Get\+Array\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{T\+Array$<$ T\+Shared\+Ptr$<$ \mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}} $>$$>$ \&}]{Out\+Array }\end{DoxyParamCaption}) const}
+
+Tries to find the field with the specified name and return it as a T\+Array$<$ T\+Shared\+Ptr$<$\+F\+Bson\+Value$>$ $>$.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+{\em Out\+Number} & A reference for the output to go in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if Field\+Name doesn\textquotesingle{}t exist or cannot be converted to T\+Array$<$ T\+Shared\+Ptr$<$\+F\+Bson\+Value$>$ $>$. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_ae5bc67e3ece644f8de1c2c9921d14aad}\label{class_f_bson_object_ae5bc67e3ece644f8de1c2c9921d14aad}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Try\+Get\+Bool\+Field@{Try\+Get\+Bool\+Field}}
+\index{Try\+Get\+Bool\+Field@{Try\+Get\+Bool\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Try\+Get\+Bool\+Field()}{TryGetBoolField()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Try\+Get\+Bool\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{bool \&}]{Out\+Bool }\end{DoxyParamCaption}) const}
+
+Tries to find the field with the specified name and return it as a boolean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+{\em Out\+Number} & A reference for the output to go in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if Field\+Name doesn\textquotesingle{}t exist or cannot be converted to boolean. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_ab6df900d2da6d850cac67bfb48862b22}\label{class_f_bson_object_ab6df900d2da6d850cac67bfb48862b22}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Try\+Get\+Field@{Try\+Get\+Field}}
+\index{Try\+Get\+Field@{Try\+Get\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Try\+Get\+Field()}{TryGetField()}}
+{\footnotesize\ttfamily T\+Shared\+Ptr$<$\mbox{\hyperlink{class_f_bson_value}{F\+Bson\+Value}}$>$ F\+Bson\+Object\+::\+Try\+Get\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name }\end{DoxyParamCaption}) const}
+
+Tries to find the specified field and returns it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a T\+Shared\+Ptr$<$\+F\+Bson\+Value$>$ that contains the data at the first key named \textquotesingle{}Field\+Name\textquotesingle{}. If no key \textquotesingle{}Field\+Name\textquotesingle{} exists, return nullptr. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a1b1e5ef9cc72a00a8e3d246f7bed7842}\label{class_f_bson_object_a1b1e5ef9cc72a00a8e3d246f7bed7842}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Try\+Get\+Number\+Field@{Try\+Get\+Number\+Field}}
+\index{Try\+Get\+Number\+Field@{Try\+Get\+Number\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Try\+Get\+Number\+Field()}{TryGetNumberField()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Try\+Get\+Number\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{double \&}]{Out\+Number }\end{DoxyParamCaption}) const}
+
+Tries to find the field with the specified name and return it as a double.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+{\em Out\+Number} & A reference for the output to go in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if Field\+Name doesn\textquotesingle{}t exist or cannot be converted to double. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_aeca0635a47dd5b5add74b80672c73516}\label{class_f_bson_object_aeca0635a47dd5b5add74b80672c73516}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Try\+Get\+String\+Array\+Field@{Try\+Get\+String\+Array\+Field}}
+\index{Try\+Get\+String\+Array\+Field@{Try\+Get\+String\+Array\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Try\+Get\+String\+Array\+Field()}{TryGetStringArrayField()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Try\+Get\+String\+Array\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{T\+Array$<$ F\+String $>$ \&}]{Out\+Array }\end{DoxyParamCaption}) const}
+
+Tries to find the field with the specified name and return it as an array of F\+Strings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+{\em Out\+Number} & A reference for the output to go in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if Field\+Name doesn\textquotesingle{}t exist or any of its contents cannot be converted to string. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_f_bson_object_a3424002e68cf2e9928c038e3d7a4aec9}\label{class_f_bson_object_a3424002e68cf2e9928c038e3d7a4aec9}} 
+\index{F\+Bson\+Object@{F\+Bson\+Object}!Try\+Get\+String\+Field@{Try\+Get\+String\+Field}}
+\index{Try\+Get\+String\+Field@{Try\+Get\+String\+Field}!F\+Bson\+Object@{F\+Bson\+Object}}
+\subsubsection{\texorpdfstring{Try\+Get\+String\+Field()}{TryGetStringField()}}
+{\footnotesize\ttfamily bool F\+Bson\+Object\+::\+Try\+Get\+String\+Field (\begin{DoxyParamCaption}\item[{const F\+String \&}]{Field\+Name,  }\item[{F\+String \&}]{Out\+String }\end{DoxyParamCaption}) const}
+
+Tries to find the field with the specified name and return it as a string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Field\+Name} & The name of the field to get. \\
+\hline
+{\em Out\+String} & a reference for the output to go in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false if Field\+Name doesn\textquotesingle{}t exist or cannot be converted to string. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Bson\+Object.\+h\end{DoxyCompactItemize}
