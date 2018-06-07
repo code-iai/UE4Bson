@@ -14,49 +14,114 @@ class UE4BSON_API FBsonValue
 {
 public:
 
-	/** Returns this value as a double, logging an error and returning zero if this is not an Json Number */
+	/** 
+	* Returns this value as a double, logging an error and returning zero if not possible. 
+	*
+	* @return this value as a double or zero if it cant be converted.
+	*/
 	double AsNumber() const;
 
-	/** Returns this value as a string, logging an error and returning an empty string if not possible */
+	/**
+	* Returns this value as a string, logging an error and returning an empty string if not possible.
+	*
+	* @return this value as a string or an empty string if it can't be converted.
+	*/
 	FString AsString() const;
 
-	/** Returns this value as a boolean, logging an error and returning false if not possible */
+	/**
+	* Returns this value as a boolean, logging an error and returning false if not possible.
+	*
+	* @return this value as a boolean or false if it can't be converted.
+	*/
 	bool AsBool() const;
 
-	/** Returns this value as an array, logging an error and returning an empty array reference if not possible */
+	/**
+	* Returns this value as a TArray, logging an error and returning an empty TArray if not possible.
+	*
+	* @return this value as a TArray or an empty TArray if it can't be converted.
+	*/
 	const TArray<TSharedPtr<FBsonValue>>& AsArray() const;
 
-	/** Returns this value as an object, throwing an error if this is not an Json Object */
+	/**
+	* Returns this value as an FBsonObject, throwing an error if this is not possible.
+	*
+	* @return this value as an FBsonObject.
+	*/
 	virtual const TSharedPtr<FBsonObject>& AsObject() const;
 
-	/** Tries to convert this value to a number, returning false if not possible */
+	/** 
+	* Tries to convert this value to a double, returning false if not possible. 
+	* 
+	* @param OutDouble a reference to write the converted number into.
+	* @return false if value can't be converted, true otherwise.
+	*/
 	virtual bool TryGetNumber(double& OutDouble) const { return false; }
 
-	/** Tries to convert this value to an integer, returning false if not possible */
+	/** 
+	* Tries to convert this value to an int32, returning false if not possible.
+	*
+	* @param OutNumber a reference to write the converted number into.
+	* @return false if value can't be converted, true otherwise.
+	*/
 	bool TryGetNumber(int32& OutNumber) const;
 
-	/** Tries to convert this value to an integer, returning false if not possible */
+	/**
+	* Tries to convert this value to a uint32, returning false if not possible.
+	*
+	* @param OutNumber a reference to write the converted number into.
+	* @return false if value can't be converted, true otherwise.
+	*/
 	bool TryGetNumber(uint32& OutNumber) const;
 
-	/** Tries to convert this value to an integer, returning false if not possible */
+	/**
+	* Tries to convert this value to an int64, returning false if not possible.
+	*
+	* @param OutNumber a reference to write the converted number into.
+	* @return false if value can't be converted, true otherwise.
+	*/
 	bool TryGetNumber(int64& OutNumber) const;
 
-	/** Tries to convert this value to a string, returning false if not possible */
+	/**
+	* Tries to convert this value to an FString, returning false if not possible.
+	*
+	* @param OutString a reference to write the converted FString into.
+	* @return false if value can't be converted, true otherwise.
+	*/
 	virtual bool TryGetString(FString& OutString) const { return false; }
 
-	/** Tries to convert this value to a bool, returning false if not possible */
+	/**
+	* Tries to convert this value to an boolean, returning false if not possible.
+	*
+	* @param OutBool a reference to write the converted boolean into.
+	* @return false if value can't be converted, true otherwise.
+	*/
 	virtual bool TryGetBool(bool& OutBool) const { return false; }
 
-	/** Tries to convert this value to an array, returning false if not possible */
+	/**
+	* Tries to convert this value to a TArray of TSharedPtr<FBsonValue>, returning false if not possible.
+	*
+	* @param OutArray a reference to write the converted TArray into.
+	* @return false if value can't be converted, true otherwise.
+	*/	
 	virtual bool TryGetArray(const TArray<TSharedPtr<FBsonValue>>*& OutArray) const { return false; }
 
-	/** Tries to convert this value to an object, returning false if not possible */
+	/**
+	* Tries to convert this value to an FBsonObject, returning false if not possible.
+	*
+	* @param Object a pointer to a reference to write the converted Object into.
+	* @return false if value can't be converted, true otherwise.
+	*/
 	virtual bool TryGetObject(const TSharedPtr<FBsonObject>*& Object) const { return false; }
 
-	/** Returns true if this value is a 'null' */
+	/** @return true if this value is 'null'. */
 	bool IsNull() const { return Type == EBson::Null || Type == EBson::None; }
 
-	/** Get a field of the same type as the argument */
+	/** 
+	* Get a field of the same type as the argument.
+	* Mind that this uses the AsType functions which will return specified values if conversion isn't possible.
+	*
+	* @param Value a reference of the desired type to put the converted value into.
+	*/
 	void AsArgumentType(double                          & Value) { Value = AsNumber(); }
 	void AsArgumentType(FString                         & Value) { Value = AsString(); }
 	void AsArgumentType(bool                            & Value) { Value = AsBool(); }
@@ -65,7 +130,17 @@ public:
 
 	EBson Type;
 
+	/**
+	* Checks whether to FBsonValues are equal.
+	* 
+	* @param Lhs first value to compare.
+	* @param Rhs second value to compare.
+	*/
 	static bool CompareEqual(const FBsonValue& Lhs, const FBsonValue& Rhs);
+
+	/**
+	* Overloaded == operator that uses the CompareEqual() method for two FBsonValues.
+	*/
 	bool operator==(const FBsonValue& Rhs) const { return CompareEqual(*this, Rhs); }
 
 protected:
@@ -149,7 +224,6 @@ class UE4BSON_API FBsonValueObject : public FBsonValue
 public:
 	FBsonValueObject(TSharedPtr<FBsonObject> InObject) : Value(InObject) { Type = EBson::Object; }
 	virtual bool TryGetObject(const TSharedPtr<FBsonObject>*& OutObject) const override { OutObject = &Value; return true; }
-
 protected:
 	TSharedPtr<FBsonObject> Value;
 

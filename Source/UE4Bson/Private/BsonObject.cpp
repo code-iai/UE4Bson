@@ -5,7 +5,6 @@
 #include <bson.h>
 
 
-
 struct FBsonObject::LibbsonImpl {
 	
 	bson_t *bsonDoc = new bson_t;
@@ -23,30 +22,36 @@ struct FBsonObject::LibbsonImpl {
 		delete bsonDoc;
 	}
 
-	void BsonFromFBsonValueArray(const TArray<TSharedPtr<FBsonValue> > &inArray, TSharedPtr<bson_t> &outArray) {
-		int arrayIndex = 0;
-		FString indexAsFString;
-		TSharedPtr<bson_t> subArray;
-		for (auto Value : inArray) {
-			indexAsFString = FString::FromInt(arrayIndex);
+	/**
+	* Creates a bson_t document from all the FBsonValues inside a given TArray.
+	*
+	* @param InArray the TArray of TSharedPtr<FBsonValue> to convert.
+	* @param OutArray a TSharedPtr to the bson_t document containing the array.
+	*/
+	void BsonFromFBsonValueArray(const TArray<TSharedPtr<FBsonValue> > &InArray, TSharedPtr<bson_t> &OutArray) {
+		int ArrayIndex = 0;
+		FString IndexAsFString;
+		TSharedPtr<bson_t> SubArray;
+		for (auto Value : InArray) {
+			IndexAsFString = FString::FromInt(ArrayIndex);
 			switch (Value->Type) {
 			case EBson::Array:
-				subArray = MakeShareable(new bson_t);
-				bson_init(subArray.Get());
-				BsonFromFBsonValueArray(Value->AsArray(), subArray);
-				BSON_APPEND_ARRAY(outArray.Get(), TCHAR_TO_UTF8(*indexAsFString), subArray.Get());
+				SubArray = MakeShareable(new bson_t);
+				bson_init(SubArray.Get());
+				BsonFromFBsonValueArray(Value->AsArray(), SubArray);
+				BSON_APPEND_ARRAY(OutArray.Get(), TCHAR_TO_UTF8(*IndexAsFString), SubArray.Get());
 				break;
 			case EBson::Boolean:
-				BSON_APPEND_BOOL(outArray.Get(), TCHAR_TO_UTF8(*indexAsFString), Value->AsBool());
+				BSON_APPEND_BOOL(OutArray.Get(), TCHAR_TO_UTF8(*IndexAsFString), Value->AsBool());
 				break;
 			case EBson::Number:
-				BSON_APPEND_DOUBLE(outArray.Get(), TCHAR_TO_UTF8(*indexAsFString), Value->AsNumber());
+				BSON_APPEND_DOUBLE(OutArray.Get(), TCHAR_TO_UTF8(*IndexAsFString), Value->AsNumber());
 				break;
 			case EBson::Object:
-				BSON_APPEND_DOCUMENT(outArray.Get(), TCHAR_TO_UTF8(*indexAsFString), Value->AsObject()->Impl->bsonDoc);
+				BSON_APPEND_DOCUMENT(OutArray.Get(), TCHAR_TO_UTF8(*IndexAsFString), Value->AsObject()->Impl->bsonDoc);
 				break;
 			case EBson::String:
-				BSON_APPEND_UTF8(outArray.Get(), TCHAR_TO_UTF8(*indexAsFString), TCHAR_TO_UTF8(*(Value->AsString())));
+				BSON_APPEND_UTF8(OutArray.Get(), TCHAR_TO_UTF8(*IndexAsFString), TCHAR_TO_UTF8(*(Value->AsString())));
 				break;
 			case EBson::None:
 
@@ -54,10 +59,16 @@ struct FBsonObject::LibbsonImpl {
 
 				break;
 			}
-			arrayIndex++;
+			ArrayIndex++;
 		}
 	}
 
+	/**
+	* Converts an Array in a bson_t to an FBsonValueArray.
+	*
+	* @param iter an iterator placed on an array in a bson_t.
+	* @return the resulting FBsonValueArray in a TSharedPtr
+	*/
 	TSharedPtr<FBsonValueArray> FBsonValueArrayFromBson(bson_iter_t *iter) const {
 		TArray<TSharedPtr<FBsonValue>> returnArray;
 		TSharedPtr<bson_iter_t> recurse;
@@ -121,6 +132,7 @@ struct FBsonObject::LibbsonImpl {
 			return EBson::None;
 		}
 	}
+
 	/**
 	* Returns the appropriate bson_type_t for a given EBson.
 	*
@@ -168,16 +180,15 @@ bool FBsonObject::Compare(const TSharedPtr<FBsonObject> &ToCompare) const {
 	return false;
 }
 
-FString FBsonObject::GetJsonFormattedString() const {
+FString FBsonObject::PrintAsCanonicalJson() const {
 	return bson_as_canonical_extended_json(Impl->bsonDoc, NULL);
 }
 
-/**
-* Returns a field with the given fieldname(key)
-*
-* @param FieldName The name of the field to check.
-* @return TSharedPtr with an appropriate FBsonValue.
-*/
+FString FBsonObject::PrintAsJson() const {
+	return bson_as_relaxed_extended_json(Impl->bsonDoc, NULL);
+}
+
+
 TSharedPtr<FBsonValue> FBsonObject::GetField(const FString &FieldName) const
 {
 	bson_iter_t iter;
@@ -273,8 +284,8 @@ void FBsonObject::SetNumberField(const FString &FieldName, double Number) {
 	BSON_APPEND_DOUBLE(Impl->bsonDoc, TCHAR_TO_UTF8(*FieldName), Number);
 }
 
-void FBsonObject::SetBoolField(const FString &FieldName, bool Value) {
-	BSON_APPEND_BOOL(Impl->bsonDoc, TCHAR_TO_UTF8(*FieldName), Value);
+void FBsonObject::SetBoolField(const FString &FieldName, bool Bool) {
+	BSON_APPEND_BOOL(Impl->bsonDoc, TCHAR_TO_UTF8(*FieldName), Bool);
 }
 
 void FBsonObject::SetStringField(const FString &FieldName, const FString &StringValue) {

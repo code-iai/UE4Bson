@@ -26,121 +26,213 @@ public:
 	const uint8_t* GetDataPointer() const;
 
 	/**
-	* @return the FBsonObject as a Json formatted String.
+	* @return the FBsonObject as a Json formatted String with some extra information.
 	*/
-	FString GetJsonFormattedString() const;
+	FString PrintAsCanonicalJson() const;
+
+	/**
+	* @return the FBsonObject as a simple Json formatted String.
+	*/
+	FString PrintAsJson() const;
 
 	/**
 	* Compares the contents of an FBsonObject to a given other one.
+	* 
+	* @param ToCompare a reference to the FBsonObject to match.
 	* @return true if the contents match.
 	*/
 	bool Compare(const TSharedPtr<FBsonObject> &ToCompare) const;
 
 	/**
-	* @return a TSharedPtr<FBsonValue> that contains the data at the first key named 'FieldName'. If no key 'FieldName' exists, return a TSharedPtr<FBsonValueNull>.
+	* Returns a field with the given fieldname(key).
+	*
+	* @param FieldName The name of the field to check.
+	* @return TSharedPtr with an appropriate FBsonValue.
 	*/
 	TSharedPtr<FBsonValue> GetField(const FString &FieldName) const; // create more options?
 
 	/**
+	* Tries to find the specified field and returns it.
+	*
+	* @param FieldName The name of the field to find.
 	* @return a TSharedPtr<FBsonValue> that contains the data at the first key named 'FieldName'. If no key 'FieldName' exists, return nullptr.
 	*/
 	TSharedPtr<FBsonValue> TryGetField(const FString& FieldName) const;
+	
+	/**
+	* Checks whether the specified field exists.
+	*
+	* @param FieldName The name of the field to check for.
+	* @return true if the field exists, false if not.
+	*/
 	bool HasField(const FString& FieldName) const;
 
 
 
 
-
-
-	/*template<EBson JsonType>
-	bool HasTypedField(const FString& FieldName) const
-	{
-		TSharedPtr<bson_iter_t> iter = MakeShareable(new bson_iter_t);
-		if (bson_iter_init_find(iter.Get(), bsonDoc, TCHAR_TO_UTF8(*FieldName))) {
-			if (FindEquivalentFieldType(bson_iter_type(iter.Get())) == JsonType)
-			{
-				return true;
-			}
-		}
-		return false;
-	}*/
-
-
-
-
-
-
 	/**
-	* Gets the field with the specified name as a number.
+	* Finds the field with the specified name and returns it as a double.
 	*
-	* Ensures that the field is present and is of type Json number.
+	* Assumes that the field is present and is of numerical type.
 	*
 	* @param FieldName The name of the field to get.
-	* @return The field's value as a number.
+	* @return The field's value as a double.
 	*/
 	double GetNumberField(const FString& FieldName) const;
 
 	/**
-	* Gets a numeric field and casts to an int32
+	* Finds the field with the specified name and returns it as an int32.
+	*
+	* Assumes that the field is present and is of type castable to double.
+	* 
+	* @param FieldName The name of the field to get.
+	* @return The field's value as an int32.
 	*/
 	FORCEINLINE int32 GetIntegerField(const FString& FieldName) const
 	{
 		return (int32)GetNumberField(FieldName);
 	}
 
-	/** Get the field named FieldName as a number. Returns false if it doesn't exist or cannot be converted. */
+	/**
+	* Tries to find the field with the specified name and return it as a double.
+	*
+	* @param FieldName The name of the field to get.
+	* @param OutNumber A reference for the output to go in.
+	* @return false if FieldName doesn't exist or cannot be converted to double.
+	*/
 	bool TryGetNumberField(const FString& FieldName, double& OutNumber) const;
 
-	/** Get the field named FieldName as a string. */
+	/**
+	* Finds the field with the specified name and returns it as an FString.
+	*
+	* Assumes that the field is present and of type string.
+	*
+	* @param FieldName The name of the field to get.
+	* @return The field's value as an FString.
+	*/
 	FString GetStringField(const FString& FieldName) const;
 
-	/** Get the field named FieldName as a string. Returns false if it doesn't exist or cannot be converted. */
+	/**
+	* Tries to find the field with the specified name and return it as a string.
+	*
+	* @param FieldName The name of the field to get.
+	* @param OutString a reference for the output to go in.
+	* @return false if FieldName doesn't exist or cannot be converted to string.
+	*/
 	bool TryGetStringField(const FString& FieldName, FString& OutString) const;
 
-	/** Get the field named FieldName as an array of strings. Returns false if it doesn't exist or any member cannot be converted. */
+	/**
+	* Tries to find the field with the specified name and return it as an array of FStrings.
+	*
+	* @param FieldName The name of the field to get.
+	* @param OutNumber A reference for the output to go in.
+	* @return false if FieldName doesn't exist or any of its contents cannot be converted to string.
+	*/
 	bool TryGetStringArrayField(const FString& FieldName, TArray<FString>& OutArray) const;
 
 	/**
-	* Gets the field with the specified name as a boolean.
+	* Finds the field with the specified name and returns it as a boolean.
 	*
-	* Ensures that the field is present and is of type Json number.
+	* Assumes that the field is present and is of type boolean.
 	*
 	* @param FieldName The name of the field to get.
 	* @return The field's value as a boolean.
 	*/
 	bool GetBoolField(const FString& FieldName) const;
 
-	/** Get the field named FieldName as a string. Returns false if it doesn't exist or cannot be converted. */
+	/**
+	* Tries to find the field with the specified name and return it as a boolean.
+	*
+	* @param FieldName The name of the field to get.
+	* @param OutNumber A reference for the output to go in.
+	* @return false if FieldName doesn't exist or cannot be converted to boolean.
+	*/
 	bool TryGetBoolField(const FString& FieldName, bool& OutBool) const;
 
-	/** Get the field named FieldName as an array. Less efficient than FJsonObject::GetArrayField, the TArray needs to be copied once. */
+	/**
+	* Finds the field with the specified name and returns it as a TArray< TSharedPtr<FBsonValue> >.
+	*
+	* Assumes that the field is present and is of type array.
+	*
+	* @param FieldName The name of the field to get.
+	* @return The field's value as a TArray< TSharedPtr<FBsonValue> >.
+	*/
 	const TArray<TSharedPtr<FBsonValue>> GetArrayField(const FString& FieldName) const;
 
-	/** Try to get the field named FieldName as an array, or return false if it's another type. Less efficient than FJsonObject::TryGetArrayField, the TArray needs to be copied once.*/
+	/**
+	* Tries to find the field with the specified name and return it as a TArray< TSharedPtr<FBsonValue> >.
+	*
+	* @param FieldName The name of the field to get.
+	* @param OutNumber A reference for the output to go in.
+	* @return false if FieldName doesn't exist or cannot be converted to TArray< TSharedPtr<FBsonValue> >.
+	*/
 	bool TryGetArrayField(const FString& FieldName, TArray<TSharedPtr<FBsonValue>>& OutArray) const;
 
+	/**
+	* Finds the field with the specified name and returns it as a TSharedPtr<FBsonObject>.
+	*
+	* Assumes that the field is present and is of type object.
+	*
+	* @param FieldName The name of the field to get.
+	* @return The field's value as a TSharedPtr<FBsonObject>.
+	*/
 	const TSharedPtr<FBsonObject> GetObjectField(const FString& FieldName) const;
 
-	/** Adds a field, automatically determines the type of the field to set from the given FBsonValue. */
+	/** 
+	* Adds a field, automatically determines the type of the field to set from the given FBsonValue. 
+	* 
+	* @param FieldName The name to be given to the field.
+	* @param Value A TSharedPtr<FBsonValue> containing the desired value of the field.
+	*/
 	void SetField(const FString &FieldName, const TSharedPtr<FBsonValue> &Value);
 
-	/** Adds a double field with the given number as value. */
+	/**
+	* Adds a field of type double (number).
+	*
+	* @param FieldName The name to be given to the field (key).
+	* @param Number The desired value of the field (value).
+	*/
 	void SetNumberField(const FString &FieldName, double Number);
 
-	/** Adds a string field with the given Fstring as value. */
+	/**
+	* Adds a field of type string.
+	*
+	* @param FieldName The name to be given to the field (key).
+	* @param StringValue The desired value of the field (value).
+	*/
 	void SetStringField(const FString &FieldName, const FString &StringValue);
 
-	/** Adds a bool field with the given boolean as value. */
-	void SetBoolField(const FString &FieldName, bool value);
+	/**
+	* Adds a field of type boolean.
+	*
+	* @param FieldName The name to be given to the field (key).
+	* @param Bool The desired value of the field (value).
+	*/
+	void SetBoolField(const FString &FieldName, bool Bool);
 
-	/** Adds an array field with the given array as value. */
+	/**
+	* Adds a field of type Array.
+	*
+	* @param FieldName The name to be given to the field (key).
+	* @param Array The desired value of the field (value).
+	*/
 	void SetArrayField(const FString &FieldName, const TArray<TSharedPtr<FBsonValue> > &Array);
 
-	/** Adds an object field with the bsonDoc contained within the given FBsonObject as value. */
+	/**
+	* Adds a field of type double.
+	*
+	* @param FieldName The name to be given to the field (key).
+	* @param Object The desired value of the field (value).
+	*/
 	void SetObjectField(const FString &FieldName, const TSharedPtr<FBsonObject> &Object);
 
-	/** WARNING: VERY INEFFICIENT!
+	/** 
 	* Removes the given field.
+	*
+	* WARNING: INEFFICIENT!
+	*
+	* @param FieldName The name of the field to remove.
+	* @return true if the field was successfully removed.
 	*/
 	bool RemoveField(const FString& FieldName);
 
