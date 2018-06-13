@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UE4Bson
    </div>
+   <div id="projectbrief">Unreal Engine 4 plugin for basic Bson support.</div>
   </td>
  </tr>
  </tbody>
@@ -69,6 +70,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Holds and manages a Bson formatted data stream.  
+ <a href="class_f_bson_object.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_bson_object_8h_source.html">BsonObject.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -79,6 +83,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8d8d23a9c2887b98a115dcb59ec4d8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe06191c8b6df93b07fd66d582194608"><td class="memItemLeft" align="right" valign="top">FString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_bson_object.html#abe06191c8b6df93b07fd66d582194608">PrintAsJson</a> () const</td></tr>
 <tr class="separator:abe06191c8b6df93b07fd66d582194608"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6a8380b281cf120fe859fa27d470d18"><td class="memItemLeft" align="right" valign="top">TSharedPtr&lt; <a class="el" href="class_f_bson_object.html">FBsonObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_bson_object.html#aa6a8380b281cf120fe859fa27d470d18">Copy</a> () const</td></tr>
+<tr class="separator:aa6a8380b281cf120fe859fa27d470d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33c96802fcc2f7267a2d9b4c315b751c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_bson_object.html#a33c96802fcc2f7267a2d9b4c315b751c">Compare</a> (const TSharedPtr&lt; <a class="el" href="class_f_bson_object.html">FBsonObject</a> &gt; &amp;ToCompare) const</td></tr>
 <tr class="separator:a33c96802fcc2f7267a2d9b4c315b751c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f5c19b16e114fb51789313da65ee438"><td class="memItemLeft" align="right" valign="top">TSharedPtr&lt; <a class="el" href="class_f_bson_value.html">FBsonValue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_f_bson_object.html#a8f5c19b16e114fb51789313da65ee438">GetField</a> (const FString &amp;FieldName) const</td></tr>
@@ -125,7 +131,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac96a387909bdadff289a513094ec1aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class' main purpose is to contain a hidden bson_t document. It can be edited and read (mostly) in known FJsonObject manner. </p>
+<div class="textblock"><p>Holds and manages a Bson formatted data stream. </p>
+<p>This classes main purpose is to contain a hidden bson_t document. It can be edited and read (mostly) in known FJsonObject manner. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a33c96802fcc2f7267a2d9b4c315b751c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a33c96802fcc2f7267a2d9b4c315b751c">&#9670;&nbsp;</a></span>Compare()</h2>
@@ -142,14 +149,33 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Compares the contents of an <a class="el" href="class_f_bson_object.html">FBsonObject</a> to a given other one.</p>
+<p>Compares the contents of an <a class="el" href="class_f_bson_object.html" title="Holds and manages a Bson formatted data stream. ">FBsonObject</a> to a given other one.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ToCompare</td><td>a reference to the <a class="el" href="class_f_bson_object.html">FBsonObject</a> to match. </td></tr>
+    <tr><td class="paramname">ToCompare</td><td>a reference to the <a class="el" href="class_f_bson_object.html" title="Holds and manages a Bson formatted data stream. ">FBsonObject</a> to match. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the contents match. </dd></dl>
+
+</div>
+</div>
+<a id="aa6a8380b281cf120fe859fa27d470d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a8380b281cf120fe859fa27d470d18">&#9670;&nbsp;</a></span>Copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TSharedPtr&lt;<a class="el" href="class_f_bson_object.html">FBsonObject</a>&gt; FBsonObject::Copy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a copy of this <a class="el" href="class_f_bson_object.html" title="Holds and manages a Bson formatted data stream. ">FBsonObject</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>the copy. </dd></dl>
 
 </div>
 </div>
@@ -247,7 +273,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>TSharedPtr with an appropriate <a class="el" href="class_f_bson_value.html">FBsonValue</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>TSharedPtr with an appropriate <a class="el" href="class_f_bson_value.html" title="A parent class for different types of Bson values. ">FBsonValue</a>. </dd></dl>
 
 </div>
 </div>
@@ -276,13 +302,13 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Finds the field with the specified name and returns it as an int32.</p>
 <p>Assumes that the field is present and is of type castable to double.</p>
+<dl class="section return"><dt>Returns</dt><dd>The field's value as an int32. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">FieldName</td><td>The name of the field to get. </td></tr>
+    <tr><td class="paramname">FieldName</td><td>The name of the field to get </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The field's value as an int32. </dd></dl>
 
 </div>
 </div>
@@ -407,7 +433,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="class_f_bson_object.html">FBsonObject</a> as a Json formatted String with some extra information. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="class_f_bson_object.html" title="Holds and manages a Bson formatted data stream. ">FBsonObject</a> as a Json formatted String with some extra information. </dd></dl>
 
 </div>
 </div>
@@ -425,7 +451,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="class_f_bson_object.html">FBsonObject</a> as a simple Json formatted String. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>the <a class="el" href="class_f_bson_object.html" title="Holds and manages a Bson formatted data stream. ">FBsonObject</a> as a simple Json formatted String. </dd></dl>
 
 </div>
 </div>
@@ -553,7 +579,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Adds a field, automatically determines the type of the field to set from the given <a class="el" href="class_f_bson_value.html">FBsonValue</a>.</p>
+<p>Adds a field, automatically determines the type of the field to set from the given <a class="el" href="class_f_bson_value.html" title="A parent class for different types of Bson values. ">FBsonValue</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">FieldName</td><td>The name to be given to the field. </td></tr>
@@ -884,7 +910,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_bson_object_8h_source.html">BsonObject.h</a></li>
+<li>C:/Users/Frederick Hastedt/Dokumente/Unreal Projects/plugin_mkr_4_19/Plugins/UE4Bson/Source/UE4Bson/Public/<a class="el" href="_bson_object_8h_source.html">BsonObject.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

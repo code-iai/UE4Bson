@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UE4Bson
    </div>
+   <div id="projectbrief">Unreal Engine 4 plugin for basic Bson support.</div>
   </td>
  </tr>
  </tbody>
@@ -72,18 +73,23 @@ $(function() {
 <div class="title">FBsonValue Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A parent class for different types of Bson values.  
+ <a href="class_f_bson_value.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_bson_value_8h_source.html">BsonValue.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for FBsonValue:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_f_bson_value.png" usemap="#FBsonValue_map" alt=""/>
   <map id="FBsonValue_map" name="FBsonValue_map">
-<area href="class_f_bson_value_array.html" alt="FBsonValueArray" shape="rect" coords="0,56,127,80"/>
-<area href="class_f_bson_value_boolean.html" alt="FBsonValueBoolean" shape="rect" coords="137,56,264,80"/>
-<area href="class_f_bson_value_null.html" alt="FBsonValueNull" shape="rect" coords="274,56,401,80"/>
-<area href="class_f_bson_value_number.html" alt="FBsonValueNumber" shape="rect" coords="411,56,538,80"/>
-<area href="class_f_bson_value_object.html" alt="FBsonValueObject" shape="rect" coords="548,56,675,80"/>
-<area href="class_f_bson_value_string.html" alt="FBsonValueString" shape="rect" coords="685,56,812,80"/>
+<area href="class_f_bson_value_array.html" title="A Json Array Value. " alt="FBsonValueArray" shape="rect" coords="0,56,127,80"/>
+<area href="class_f_bson_value_boolean.html" title="A Bson Boolean Value. " alt="FBsonValueBoolean" shape="rect" coords="137,56,264,80"/>
+<area href="class_f_bson_value_null.html" title="A Bson Null Value. " alt="FBsonValueNull" shape="rect" coords="274,56,401,80"/>
+<area href="class_f_bson_value_number.html" title="A Bson Number Value. " alt="FBsonValueNumber" shape="rect" coords="411,56,538,80"/>
+<area href="class_f_bson_value_object.html" title="A Json Object Value. " alt="FBsonValueObject" shape="rect" coords="548,56,675,80"/>
+<area href="class_f_bson_value_string.html" title="A Bson String Value. " alt="FBsonValueString" shape="rect" coords="685,56,812,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -163,7 +169,10 @@ static const TArray&lt; TSharedPtr&lt; <a class="el" href="class_f_bson_value.ht
 static const TSharedPtr&lt; <a class="el" href="class_f_bson_object.html">FBsonObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>EMPTY_OBJECT</b></td></tr>
 <tr class="separator:ac8abc326f63430015e2392e0abb6fd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A parent class for different types of Bson values. </p>
+<p>A base class for easy usage and comparison of Bson values. Only it's derived classes should actually be used. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2776e2dccc09e36f42f5bc7f0412f79c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2776e2dccc09e36f42f5bc7f0412f79c">&#9670;&nbsp;</a></span>AsArgumentType()</h2>
 
@@ -276,8 +285,8 @@ static const TSharedPtr&lt; <a class="el" href="class_f_bson_object.html">FBsonO
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Returns this value as an <a class="el" href="class_f_bson_object.html">FBsonObject</a>, throwing an error if this is not possible.</p>
-<dl class="section return"><dt>Returns</dt><dd>this value as an <a class="el" href="class_f_bson_object.html">FBsonObject</a>. </dd></dl>
+<p>Returns this value as an <a class="el" href="class_f_bson_object.html" title="Holds and manages a Bson formatted data stream. ">FBsonObject</a>, throwing an error if this is not possible.</p>
+<dl class="section return"><dt>Returns</dt><dd>this value as an <a class="el" href="class_f_bson_object.html" title="Holds and manages a Bson formatted data stream. ">FBsonObject</a>. </dd></dl>
 
 </div>
 </div>
@@ -606,7 +615,7 @@ static const TSharedPtr&lt; <a class="el" href="class_f_bson_object.html">FBsonO
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Tries to convert this value to an <a class="el" href="class_f_bson_object.html">FBsonObject</a>, returning false if not possible.</p>
+<p>Tries to convert this value to an <a class="el" href="class_f_bson_object.html" title="Holds and manages a Bson formatted data stream. ">FBsonObject</a>, returning false if not possible.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Object</td><td>a pointer to a reference to write the converted Object into. </td></tr>
@@ -656,7 +665,7 @@ static const TSharedPtr&lt; <a class="el" href="class_f_bson_object.html">FBsonO
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="_bson_value_8h_source.html">BsonValue.h</a></li>
+<li>C:/Users/Frederick Hastedt/Dokumente/Unreal Projects/plugin_mkr_4_19/Plugins/UE4Bson/Source/UE4Bson/Public/<a class="el" href="_bson_value_8h_source.html">BsonValue.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

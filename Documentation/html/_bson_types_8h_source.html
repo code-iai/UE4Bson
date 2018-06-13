@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>UE4Bson: BsonTypes.h Source File</title>
+<title>UE4Bson: C:/Users/Frederick Hastedt/Dokumente/Unreal Projects/plugin_mkr_4_19/Plugins/UE4Bson/Source/UE4Bson/Public/BsonTypes.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">UE4Bson
    </div>
+   <div id="projectbrief">Unreal Engine 4 plugin for basic Bson support.</div>
   </td>
  </tr>
  </tbody>
@@ -45,7 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,12 +60,17 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_a0e3201cdab3ea93bea828bac8d93d42.html">Dokumente</a></li><li class="navelem"><a class="el" href="dir_2a885196479e91b92eef72a6b0ee17a1.html">Unreal Projects</a></li><li class="navelem"><a class="el" href="dir_34a14d1b2d084514d1b6598c1027c1a4.html">plugin_mkr_4_19</a></li><li class="navelem"><a class="el" href="dir_b4520fec572d9f806c3f1bb4e3278005.html">Plugins</a></li><li class="navelem"><a class="el" href="dir_9036d85a0b5fcd177b8a86520c5ef5bd.html">UE4Bson</a></li><li class="navelem"><a class="el" href="dir_e0e36fb56696093aabbdd8f75f264412.html">Source</a></li><li class="navelem"><a class="el" href="dir_64f9b7ea195374c244e6f471ef97bac8.html">UE4Bson</a></li><li class="navelem"><a class="el" href="dir_3e2451d526a26081050686ef8c2b1af1.html">Public</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">BsonTypes.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;CoreMinimal.h&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span>Error;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">enum class</span> EBson</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    None,</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Null,</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    String,</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Number,</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    Boolean,</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Array,</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Object</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div></div><!-- fragment --></div><!-- contents -->
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#pragma once</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;CoreMinimal.h&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span>Error;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">enum class</span> EBson</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    None,</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    Null,</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    String,</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    Number,</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Boolean,</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    Array,</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Object</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div></div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
