@@ -4,10 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "BsonValue.h"
+#include "Json.h"
 
 
 /**
-* This class' main purpose is to contain a hidden bson_t document.
+* \brief Holds and manages a Bson formatted data stream.
+*
+* This classes main purpose is to contain a hidden bson_t document.
 * It can be edited and read (mostly) in known FJsonObject manner.
 */
 class UE4BSON_API FBsonObject
@@ -21,9 +24,28 @@ private:
 public:
 
 	/**
+	* Constructor that creates an empty Bson Document.
+	*/
+	FBsonObject();
+
+	/**
+	* Creates a Bson Document from the provided Data, assumes the data is valid Bson format.
+	*/
+	FBsonObject(const uint8_t* Data, size_t Length);
+
+	FBsonObject(FString Data);
+
+	~FBsonObject();
+
+	/**
 	* @return a pointer to the memory region where the bson formatted data is located.
 	*/
 	const uint8_t* GetDataPointer() const;
+
+	/**
+	* @return the length of the data contained in the document
+	*/
+	const size_t GetDataLength() const;
 
 	/**
 	* @return the FBsonObject as a Json formatted String with some extra information.
@@ -34,6 +56,13 @@ public:
 	* @return the FBsonObject as a simple Json formatted String.
 	*/
 	FString PrintAsJson() const;
+
+	/**
+	* Create a copy of this FBsonObject.
+	*
+	* @return the copy.
+	*/
+	TSharedPtr<FBsonObject> Copy() const;
 
 	/**
 	* Compares the contents of an FBsonObject to a given other one.
@@ -238,6 +267,5 @@ public:
 
 
 
-	FBsonObject();
-	~FBsonObject();
+	
 };

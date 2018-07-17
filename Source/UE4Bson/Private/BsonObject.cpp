@@ -7,10 +7,24 @@
 
 struct FBsonObject::LibbsonImpl {
 	
-	bson_t *bsonDoc = new bson_t;
+	bson_t *bsonDoc;
 
 	LibbsonImpl() {
+		bsonDoc = new bson_t;
 		bson_init(bsonDoc);
+	}
+
+	LibbsonImpl(const uint8_t* Data, size_t Length) {
+		bsonDoc = bson_new_from_data(Data, Length);
+	}
+
+	LibbsonImpl(FString Data) {
+		bson_error_t t;
+		bsonDoc = new bson_t;
+		if (!bson_init_from_json(bsonDoc, TCHAR_TO_ANSI(*Data), -1, &t)) {
+			UE_LOG(LogBson, Error, TEXT("Error while converting from JSON: %s\nDocument has been initialized empty."), t.message);
+			bson_init(bsonDoc);
+		}
 	}
 
 	void SetBsonDoc(bson_t *initDoc) {
@@ -19,7 +33,6 @@ struct FBsonObject::LibbsonImpl {
 
 	~LibbsonImpl() {
 		bson_destroy(bsonDoc);
-		delete bsonDoc;
 	}
 
 	/**
@@ -159,25 +172,46 @@ struct FBsonObject::LibbsonImpl {
 };
 
 
-FBsonObject::FBsonObject()
-{
+FBsonObject::FBsonObject(){
 	Impl = new LibbsonImpl;
 	
 }
+
+FBsonObject::FBsonObject(const uint8_t* Data, size_t Length) {
+	Impl = new LibbsonImpl(Data, Length);
+}
+
+FBsonObject::FBsonObject(FString Data) {
+	Impl = new LibbsonImpl(Data);
+}
+
 
 FBsonObject::~FBsonObject() 
 {
 	delete Impl;
 }
 
-const uint8_t* FBsonObject::GetDataPointer() const {
+
+const uint8_t* FBsonObject::GetDataPointer() const 
+{
 	return bson_get_data(Impl->bsonDoc);
+}
+
+const size_t FBsonObject::GetDataLength() const
+{
+	return Impl->bsonDoc->len;
 }
 
 bool FBsonObject::Compare(const TSharedPtr<FBsonObject> &ToCompare) const {
 	if (bson_compare(Impl->bsonDoc, ToCompare->Impl->bsonDoc) == 0)
 		return true;
 	return false;
+}
+
+TSharedPtr<FBsonObject> FBsonObject::Copy() const {
+	TSharedPtr<FBsonObject> Copy = MakeShareable(new FBsonObject());
+	Copy->Impl->bsonDoc = bson_copy(Impl->bsonDoc);
+	return Copy;
 }
 
 FString FBsonObject::PrintAsCanonicalJson() const {
