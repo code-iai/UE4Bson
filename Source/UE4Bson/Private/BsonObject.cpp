@@ -250,7 +250,6 @@ TSharedPtr<FBsonValue> FBsonObject::GetField(const FString &FieldName) const
 			void *data = nullptr;
 			bson_iter_document(&iter, length, (const uint8_t**)&data);
 			size_t size = *length;
-			UE_LOG(LogBson, Log, TEXT("Allocated region size: %d"), size);
 			TSharedPtr<FBsonObject> NewObject = MakeShareable(new FBsonObject);
 			NewObject->Impl->SetBsonDoc(bson_new_from_data((uint8_t*)data, size));
 			TSharedPtr<FBsonValueObject> ReturnObject = MakeShareable(new FBsonValueObject{NewObject});

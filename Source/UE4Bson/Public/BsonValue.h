@@ -4,15 +4,19 @@
 
 #include "CoreMinimal.h"
 #include "BsonTypes.h"
+#include "Json.h"
 
 class FBsonObject;
 
 /**
+* \brief A parent class for different types of Bson values.
 *
+* A base class for easy usage and comparison of Bson values. Only it's derived classes should actually be used.
 */
 class UE4BSON_API FBsonValue
 {
 public:
+
 
 	/** 
 	* Returns this value as a double, logging an error and returning zero if not possible. 
@@ -158,7 +162,7 @@ protected:
 };
 
 
-/** A Bson String Value. */
+/** \brief A Bson String Value. */
 class UE4BSON_API FBsonValueString : public FBsonValue
 {
 public:
@@ -174,7 +178,7 @@ protected:
 	virtual FString GetType() const override { return TEXT("String"); }
 };
 
-/** A Bson Number Value. */
+/** \brief A Bson Number Value. */
 class UE4BSON_API FBsonValueNumber : public FBsonValue
 {
 public:
@@ -189,7 +193,7 @@ protected:
 	virtual FString GetType() const override { return TEXT("Number"); }
 };
 
-/** A Bson Boolean Value. */
+/** \brief A Bson Boolean Value. */
 class UE4BSON_API FBsonValueBoolean : public FBsonValue
 {
 public:
@@ -204,7 +208,7 @@ protected:
 	virtual FString GetType() const override { return TEXT("Boolean"); }
 };
 
-/** A Json Array Value. */
+/** \brief A Json Array Value. */
 class UE4BSON_API FBsonValueArray : public FBsonValue
 {
 public:
@@ -218,7 +222,7 @@ protected:
 	virtual FString GetType() const override { return TEXT("Array"); }
 };
 
-/** A Json Object Value. */
+/** \brief A Json Object Value. */
 class UE4BSON_API FBsonValueObject : public FBsonValue
 {
 public:
@@ -230,7 +234,7 @@ protected:
 	virtual FString GetType() const override { return TEXT("Object"); }
 };
 
-/** A Bson Null Value. */
+/** \brief A Bson Null Value. */
 class UE4BSON_API FBsonValueNull : public FBsonValue
 {
 public:

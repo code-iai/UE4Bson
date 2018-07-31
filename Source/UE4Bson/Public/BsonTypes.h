@@ -7,8 +7,10 @@
 class Error;
 
 /**
- * Represents the most important types a Bson Value can be.
- */
+* \brief Represents the general types a Bson Value can be.
+*
+* Represents the general types a Bson Value can be.
+*/
 enum class EBson
 {
 	None,
