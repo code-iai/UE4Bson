@@ -18,7 +18,7 @@ MyObject->SetNumberField("Number", 42);
 MyObject->SetStringField("String", "funnyString");
 MyObject->SetBoolField("Bool", true);
 
-UE_LOG(LogTemp, Log, TEXT("MyObject formatted as json string: %s"), *(MyObject->GetJsonFormattedString()));
+UE_LOG(LogTemp, Log, TEXT("MyObject formatted as json string: %s"), *(MyObject->PrintAsJson()));
 
 TArray<TSharedPtr<FBsonValue>> MyArray;
 MyArray.Add(MakeShareable(new FBsonValueString("MyArrayString")));
@@ -29,11 +29,11 @@ TSharedPtr<FBsonObject> MySubObject = MakeShareable(new FBsonObject);
 MySubObject->SetBoolField("SubBool", false);
 MySubObject->SetArrayField("SubArray", MyArray);
 
-UE_LOG(LogTemp, Log, TEXT("MySubObject formatted as json string: %s"), *(MySubObject->GetJsonFormattedString()));
+UE_LOG(LogTemp, Log, TEXT("MySubObject formatted as json string: %s"), *(MySubObject->PrintAsJson()));
 
 MyObject->SetObjectField("SubObject", MySubObject);
 
-UE_LOG(LogTemp, Log, TEXT("MyObject formatted as json string ... again: %s"), *(MyObject->GetJsonFormattedString()));
+UE_LOG(LogTemp, Log, TEXT("MyObject formatted as json string ... again: %s"), *(MyObject->PrintAsJson()));
 ```
 
 When this code is executed you should see in your Output Log something similar to this:
