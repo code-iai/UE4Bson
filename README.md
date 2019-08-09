@@ -1,6 +1,6 @@
 # UE4Bson
 This is an **experimental** Unreal Engine 4 plugin which adds basic Bson support.
-Currently the only supported platform is Win64.
+Currently the only supported platform is Win64. The plugin has been developed when 4.19 was around.
 
 ## Getting it to work
 Clone this Github into your UE4Project/Plugins folder. Add "UE4Bson" to your PrivateDependencyModules and rebuild the project. That should be it, you're ready to go.
