@@ -1,5 +1,5 @@
 # UE4Bson
-This is an Unreal Engine 4 plugin which adds basic Bson support.
+This is an **experimental** Unreal Engine 4 plugin which adds basic Bson support.
 Currently the only supported platform is Win64.
 
 ## Getting it to work
